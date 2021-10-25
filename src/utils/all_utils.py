@@ -28,6 +28,6 @@ def save_reports(report: dict, report_path: str, indentation=4):
     logging.info(f"reports are saved at {report_path}")
 
 def get_timestamp(name):
-    timestamp = time.asctime().rpelace(" ", "_").replace(":", "_")
+    timestamp = time.asctime().replace(" ", "_").replace(":", "_")
     unique_name = f"{name}_at_{timestamp}"
     return unique_name

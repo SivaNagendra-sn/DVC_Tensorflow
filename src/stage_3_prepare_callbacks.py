@@ -17,7 +17,7 @@ def prepare_callbacks(config_path, params_path):
     params = read_yaml(params_path)
 
     artifacts =config["artifacts"]
-    artifacts_dir = config["ARTIFACTS_DIR"]
+    artifacts_dir = artifacts["ARTIFACTS_DIR"]
 
     tensorboard_log_dir = os.path.join(artifacts_dir,artifacts["TENSORBOARD_ROOT_LOG_DIR"])
     checkpoint_dir = os.path.join(artifacts_dir, artifacts["CHECKPOINT_DIR"])
