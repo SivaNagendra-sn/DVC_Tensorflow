@@ -36,7 +36,17 @@ def train_model(config_path, params_path):
         BATCH_SIZE = params["BATCH_SIZE"],
         data_augmentation = params["AUGMENATATION"]
         ) 
-    print("came to stage 4")
+    steps_per_epoch = train_generator.samples // train_generator.batch_size
+    validation_steps = valid_generator.samples // valid_generator.batch_size
+
+    model.fit(
+        train_generator,
+        validation_data = valid_generator,
+        epochs = params["EPOCHS"],
+        callbacks = callbacks,
+        steps_per_epoch = steps_per_epoch,
+        validation_steps = validation_steps
+    )
 
     #create_directory([])
 
