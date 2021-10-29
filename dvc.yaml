@@ -55,7 +55,7 @@ stages:
       - AUGMENATATION
       - EPOCHS
     outs:
-      - artifacts/model # since model name changes everytime, we are adding upt root folder level
+      - artifacts/model #since model name changes everytime, we are adding upt root folder level
       
   
 
