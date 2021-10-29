@@ -3,6 +3,7 @@ from src.utils.models import get_VGG_16_model, prepare_model
 from src.utils.callbacks import get_callbacks
 from src.utils.models import load_full_model
 from src.utils.data_management import train_valid_generator
+from src.utils.models import get_unique_path_to_save_model
 import argparse
 import os
 import logging
@@ -47,8 +48,16 @@ def train_model(config_path, params_path):
         steps_per_epoch = steps_per_epoch,
         validation_steps = validation_steps
     )
+    logging.info("Training is done")
 
-    #create_directory([])
+    trained_model_dir = os.path.join(artifacts_dir, artifacts["TRAINED_MODEL_DIR"])
+    create_directory([trained_model_dir])
+
+    model_file_path = get_unique_path_to_save_model(trained_model_dir)
+    model.save(model_file_path)
+
+    logging.info(f"Trained model saved at {model_file_path}")
+
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
