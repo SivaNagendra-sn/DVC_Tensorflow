@@ -1,5 +1,4 @@
 from src.utils.all_utils import read_yaml, create_directory
-from src.utils.models import get_VGG_16_model, prepare_model
 from src.utils.callbacks import get_callbacks
 from src.utils.models import load_full_model
 from src.utils.data_management import train_valid_generator
